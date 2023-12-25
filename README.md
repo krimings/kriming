@@ -1,5 +1,5 @@
 #!etc/kriming
-all will come# sqlmap ![](https://i.imgur.com/fe85aVR.png)
+#sqlmap ![](https://i.imgur.com/fe85aVR.png)
 
 [![.github/workflows/tests.yml](https://github.com/sqlmapproject/sqlmap/actions/workflows/tests.yml/badge.svg)](https://github.com/sqlmapproject/sqlmap/actions/workflows/tests.yml) [![Python 2.6|2.7|3.x](https://img.shields.io/badge/python-2.6|2.7|3.x-yellow.svg)](https://www.python.org/) [![License](https://img.shields.io/badge/license-GPLv2-red.svg)](https://raw.githubusercontent.com/sqlmapproject/sqlmap/master/LICENSE) [![Twitter](https://img.shields.io/badge/twitter-@sqlmap-blue.svg)](https://twitter.com/sqlmap)
 
@@ -76,4 +76,48 @@ Translations
 * [Turkish](https://github.com/sqlmapproject/sqlmap/blob/master/doc/translations/README-tr-TR.md)
 * [Ukrainian](https://github.com/sqlmapproject/sqlmap/blob/master/doc/translations/README-uk-UA.md)
 * [Vietnamese](https://github.com/sqlmapproject/sqlmap/blob/master/doc/translations/README-vi-VN.md)
+![Topgrade](doc/topgrade.png)
+
+[![Travis](https://api.travis-ci.org/r-darwish/topgrade.svg?branch=master)](https://travis-ci.org/r-darwish/topgrade)
+[![AppVeyor](https://ci.appveyor.com/api/projects/status/github/r-darwish/topgrade?svg=true)](https://ci.appveyor.com/project/r-darwish/topgrade)
+![GitHub release](https://img.shields.io/github/release/r-darwish/topgrade.svg)
+[![Crates.io](https://img.shields.io/crates/v/topgrade.svg)](https://crates.io/crates/topgrade)
+[![AUR](https://img.shields.io/aur/version/topgrade.svg)](https://aur.archlinux.org/packages/topgrade/)
+![homebrew](https://img.shields.io/homebrew/v/topgrade.svg)
+
+![Demo](doc/screenshot.gif)
+
+Keeping your system up to date usually involves invoking multiple package managers.
+This results in big, non-portable shell one-liners saved in your shell.
+To remedy this, _topgrade_ detects which tools you use and runs the appropriate commands to update them.
+
+## Installation
+- Arch Linux: [AUR](https://aur.archlinux.org/packages/topgrade/) package.
+- NixOS: _topgrade_ package in `nixpkgs`.
+- macOS: [Homebrew](https://brew.sh/) or [MacPorts](https://www.macports.org/install.php).
+
+Other systems users can either use `cargo install` or use the compiled binaries from the release page.
+The compiled binaries contain a self-upgrading feature.
+
+Topgrade requires Rust 1.51 or above.
+
+## Usage
+Just run `topgrade`.
+See [the wiki](https://github.com/r-darwish/topgrade/wiki/Step-list) for the list of things Topgrade supports.
+
+## Customization
+See `config.example.toml` for an example configuration file.
+
+### Configuration path
+
+The configuration should be placed in the following paths depending by the operating system:
+
+* **Windows** - `%APPDATA%/topgrade.toml`
+* **macOS** and **other Unix systems** - `${XDG_CONFIG_HOME:-~/.config}/topgrade.toml`
+
+## Remote execution
+You can specify a key called `remote_topgrades` in the configuration file.
+This key should contain a list of hostnames that have topgrade installed on them.
+Topgrade will use `ssh` to run `topgrade` on remote hosts before acting locally.
+To limit the execution only to specific hosts use the `--remote-host-limit` parameter.
 
