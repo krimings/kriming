@@ -1,2 +1,2 @@
-#!etc/KriMing
+#!etc/kriming
 all will come form krinux
